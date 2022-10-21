@@ -1,4 +1,4 @@
-# UClansV5-API
+# UKoth-API
 [![](https://jitpack.io/v/UlrichBR/UKoth-API.svg)](https://jitpack.io/#UlrichBR/UKoth-API)
 
 Maven:
