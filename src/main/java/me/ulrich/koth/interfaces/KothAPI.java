@@ -14,10 +14,6 @@ public interface KothAPI {
 	void addScoreboardImplement(ScoreboardAPI impl);
 	
 	boolean hasScoreboardImplemented();
-
-	void addHoloImplement(HologramAPI impl);
-	
-	boolean hasHoloImplemented();
 	
 	boolean startKothEvent(String kothName);
 
@@ -30,5 +26,7 @@ public interface KothAPI {
 	boolean endKothEvent(UUID kothUUID, Player winner);
 
 	Set<UUID> getAllKothEvent();
+	
+
 
 }
