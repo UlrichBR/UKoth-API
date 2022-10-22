@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 
 import me.ulrich.koth.Koth;
 import me.ulrich.koth.interfaces.GroupAPI;
+import me.ulrich.koth.interfaces.HologramAPI;
 import me.ulrich.koth.interfaces.KothAPI;
 import me.ulrich.koth.interfaces.ScoreboardAPI;
 
@@ -15,6 +16,14 @@ public class KothAPIManager implements KothAPI {
 	public static KothAPIManager getInstance() {
 		return Koth.getCore().getKothAPI();
 	}
+	
+	@Override
+	public boolean hasHoloImplemented() {
+		return false;
+	}
+	
+	@Override
+	public void addHoloImplement(HologramAPI impl) {}
 	
 	@Override
 	public boolean hasGroupImplemented() {
