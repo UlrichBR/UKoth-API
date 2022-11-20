@@ -67,6 +67,16 @@ public class KothAPIManager implements KothAPI {
 	}
 	
 	@Override
+	public boolean hasKothStarted(String kothName) {
+		return false;
+	}
+	
+	@Override
+	public boolean hasKothStarted(UUID kothUUID) {
+		return false;
+	}
+	
+	@Override
 	public Set<UUID> getAllKothEvent(){
 		return null;
 	}
