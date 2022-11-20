@@ -30,7 +30,10 @@ public interface KothAPI {
 	boolean endKothEvent(UUID kothUUID, Player winner);
 
 	Set<UUID> getAllKothEvent();
+	
+	boolean hasKothStarted(String kothName);
 
+	boolean hasKothStarted(UUID kothUUID);
 
 	
 
