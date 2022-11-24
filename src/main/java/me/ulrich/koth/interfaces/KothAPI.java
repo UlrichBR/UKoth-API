@@ -35,7 +35,9 @@ public interface KothAPI {
 
 	boolean hasKothStarted(UUID kothUUID);
 
-	
+	UUID getKothUUID(String kothName);
+
+	String getKothName(UUID kothUUID);
 
 
 }
