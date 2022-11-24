@@ -77,6 +77,16 @@ public class KothAPIManager implements KothAPI {
 	}
 	
 	@Override
+	public String getKothName(UUID kothUUID) {
+		return null;
+	}
+	
+	@Override
+	public UUID getKothUUID(String kothName) {
+		return null;
+	}
+	
+	@Override
 	public Set<UUID> getAllKothEvent(){
 		return null;
 	}
