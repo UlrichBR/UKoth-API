@@ -21,6 +21,8 @@ public interface HologramAPI {
      */
     Hologram createHologram(final Koth plugin, final Location location, String id, Object extra);
 
+    boolean removeIfPreset(final Koth plugin, String id);
+    
     /**
      * Set a holograms line at an index
      *
