@@ -18,6 +18,11 @@ public class KothAPIManager implements KothAPI {
 	}
 	
 	@Override
+	public String getTag() {
+		return (Koth.getCore().getTag());
+	}
+	
+	@Override
 	public boolean hasHoloImplemented() {
 		return false;
 	}
