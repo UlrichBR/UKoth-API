@@ -60,6 +60,9 @@ public interface KothAPI {
 
 	boolean startKothEvent(UUID kothUUID, Player sender);
 
+	String parseText(KothData koth, String text);
+
+	String parseText(UUID playerUUID, String text);
 
 	
 
