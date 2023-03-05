@@ -14,7 +14,7 @@ public class KothCaptureEvent extends Event implements Cancellable {
 	private UUID kothUUID;
 	private Player player;
     
-    public kothCaptureEvent(UUID kothUUID, Player player) {
+    public KothCaptureEvent(UUID kothUUID, Player player) {
     	this.setKothUUID(kothUUID);
     	this.setPlayer(player);
     }
