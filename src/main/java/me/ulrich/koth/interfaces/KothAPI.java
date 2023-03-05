@@ -38,6 +38,8 @@ public interface KothAPI {
 	UUID getKothUUID(String kothName);
 
 	String getKothName(UUID kothUUID);
+	
+	String getTag();
 
 
 }
