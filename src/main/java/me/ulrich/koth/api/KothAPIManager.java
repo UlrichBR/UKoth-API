@@ -63,6 +63,11 @@ public class KothAPIManager implements KothAPI {
 	}
 	
 	@Override
+	public boolean startKothEvent(UUID kothUUID, Player sender) {
+		return false;
+	}
+	
+	@Override
 	public boolean endKothEvent(String kothName) {
 		return false;
 	}
