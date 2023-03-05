@@ -14,12 +14,12 @@ import me.ulrich.koth.interfaces.ScoreboardAPI;
 public class KothAPIManager implements KothAPI {
 
 	public static KothAPIManager getInstance() {
-		return Koth.getCore().getKothAPI();
+		return null;
 	}
 	
 	@Override
 	public String getTag() {
-		return (Koth.getCore().getTag());
+		return null;
 	}
 	
 	@Override
