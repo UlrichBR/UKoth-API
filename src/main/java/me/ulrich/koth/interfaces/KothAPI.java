@@ -58,6 +58,7 @@ public interface KothAPI {
 
 	HashMap<UUID, KothData> getKothData();
 
+	boolean startKothEvent(UUID kothUUID, Player sender);
 
 
 	
