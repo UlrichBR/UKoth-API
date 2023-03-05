@@ -12,9 +12,11 @@ public class KothEndEvent extends Event implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
     private boolean cancelled;
 	private UUID kothUUID;
+	private Player player;
     
     public KothEndEvent(UUID kothUUID, Player player) {
     	this.setKothUUID(kothUUID);
+    	this.setPlayer(player);
     }
     
 	public boolean isCancelled() {
@@ -39,6 +41,14 @@ public class KothEndEvent extends Event implements Cancellable {
 
 	public void setKothUUID(UUID kothUUID) {
 		this.kothUUID = kothUUID;
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 
 
