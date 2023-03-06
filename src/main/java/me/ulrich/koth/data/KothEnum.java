@@ -2,6 +2,10 @@ package me.ulrich.koth.data;
 
 public class KothEnum {
 
+	public enum KothSchedulerError{
+		MINPLAYER;
+	}
+	
 	public enum KothLangs{
 		EN;
 	}
