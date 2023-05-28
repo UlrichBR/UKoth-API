@@ -2,16 +2,19 @@ package me.ulrich.koth.api;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import me.ulrich.koth.Koth;
 import me.ulrich.koth.data.CubRegionLoc;
 import me.ulrich.koth.data.IslandJoinLeaveData;
 import me.ulrich.koth.data.KothData;
+import me.ulrich.koth.data.NextEventData;
 import me.ulrich.koth.interfaces.GroupAPI;
 import me.ulrich.koth.interfaces.HologramAPI;
 import me.ulrich.koth.interfaces.KothAPI;
@@ -106,12 +109,7 @@ public class KothAPIManager implements KothAPI {
 	public KothData getKoth(UUID kothUUID) {
 		return null;
 	}
-	
-	@Override
-	public CubRegionLoc getKoth(Location location) {
-		return null;
-	}
-	
+
 	@Override
 	public List<Player> getAdminMode() {
 		return null;
@@ -140,6 +138,151 @@ public class KothAPIManager implements KothAPI {
 	@Override
 	public String parseText(UUID playerUUID, String text) {
 		return null;
+	}
+
+	@Override
+	public Optional<CubRegionLoc> getKoth(Location location) {
+		return Optional.empty();
+	}
+
+	@Override
+	public Optional<KothData> getKothByLocation(Location location) {
+		return Optional.empty();
+	}
+
+	@Override
+	public KothData getKoth(String name) {
+		return null;
+	}
+
+	@Override
+	public boolean toggleStarterEnabled(boolean state) {
+		return false;
+	}
+
+	@Override
+	public boolean togglePlayerAdminMode(Player player) {
+		return false;
+	}
+
+	@Override
+	public boolean kothExists(UUID name) {
+		return false;
+	}
+
+	@Override
+	public Optional<KothData> createNewKoth(String name, Location loc1, Location loc2) {
+		return Optional.empty();
+	}
+
+	@Override
+	public boolean deleteKoth(UUID name) {
+		return false;
+	}
+
+	@Override
+	public boolean moveKoth(UUID name, Location loc1, Location loc2) {
+		return false;
+	}
+
+	@Override
+	public boolean teleportKoth(Player player, UUID uuid) {
+		return false;
+	}
+
+	@Override
+	public Optional<Location> getCoordKoth(UUID uuid) {
+		return Optional.empty();
+	}
+
+	@Override
+	public Optional<ItemStack> getWand() {
+		return Optional.empty();
+	}
+
+	@Override
+	public Optional<ItemStack> getKeyWand() {
+		return Optional.empty();
+	}
+
+	@Override
+	public Optional<ItemStack> getKothKey(KothData koth, int amount) {
+		return Optional.empty();
+	}
+
+	@Override
+	public Optional<ItemStack> getStarterItem(KothData koth, int amount) {
+		return Optional.empty();
+	}
+
+	@Override
+	public boolean clearWand() {
+		return false;
+	}
+
+	@Override
+	public boolean checkWand() {
+		return false;
+	}
+
+	@Override
+	public boolean changeIconKoth(UUID name, ItemStack hand) {
+		return false;
+	}
+
+	@Override
+	public HashMap<NextEventData, Long> getNextEvents(UUID kothUUID) {
+		return null;
+	}
+
+	@Override
+	public void stopAllEvents() {
+		
+	}
+
+	@Override
+	public void removeControler(UUID kothUUID) {
+		
+	}
+
+	@Override
+	public void findNewControler(UUID kothUUID) {
+		
+	}
+
+	@Override
+	public void setNewControler(UUID kothUUID, Player player) {
+		
+	}
+
+	@Override
+	public void applyPlayerWinner(UUID kothUUID, Player winner) {
+		
+	}
+
+	@Override
+	public List<Player> getAllRegionPlayers(UUID kothUUID) {
+		return null;
+	}
+
+	@Override
+	public List<String> getActiveEventList() {
+		return null;
+	}
+
+	@Override
+	public HashMap<NextEventData, Long> getAllEvents() {
+		return null;
+	}
+
+	@Override
+	public HashMap<NextEventData, Long> getNextEvents() {
+		return null;
+	}
+
+	@Override
+	public void findNewControler(UUID kothUUID, Player player, boolean sameGroup) {
+		
 	}	
 
 
