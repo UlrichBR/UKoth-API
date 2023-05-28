@@ -2,15 +2,18 @@ package me.ulrich.koth.interfaces;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import me.ulrich.koth.data.CubRegionLoc;
 import me.ulrich.koth.data.IslandJoinLeaveData;
 import me.ulrich.koth.data.KothData;
+import me.ulrich.koth.data.NextEventData;
 
 public interface KothAPI {
 
@@ -50,7 +53,9 @@ public interface KothAPI {
 
 	KothData getKoth(UUID kothUUID);
 
-	CubRegionLoc getKoth(Location location);
+	Optional<CubRegionLoc> getKoth(Location location);
+	
+	Optional<KothData> getKothByLocation(Location location);
 
 	List<Player> getAdminMode();
 
@@ -63,6 +68,63 @@ public interface KothAPI {
 	String parseText(KothData koth, String text);
 
 	String parseText(UUID playerUUID, String text);
+
+	KothData getKoth(String name);
+
+	boolean toggleStarterEnabled(boolean state);
+
+	boolean togglePlayerAdminMode(Player player);
+
+	boolean kothExists(UUID name);
+
+	Optional<KothData> createNewKoth(String name, Location loc1, Location loc2);
+
+	boolean deleteKoth(UUID name);
+
+	boolean moveKoth(UUID name, Location loc1, Location loc2);
+
+	boolean teleportKoth(Player player, UUID uuid);
+
+	Optional<Location> getCoordKoth(UUID uuid);
+
+	Optional<ItemStack> getWand();
+
+	Optional<ItemStack> getKeyWand();
+
+	Optional<ItemStack> getKothKey(KothData koth, int amount);
+
+	Optional<ItemStack> getStarterItem(KothData koth, int amount);
+
+	boolean clearWand();
+
+	boolean checkWand();
+
+	boolean changeIconKoth(UUID name, ItemStack hand);
+
+	HashMap<NextEventData, Long> getNextEvents(UUID kothUUID);
+
+	void stopAllEvents();
+
+	void removeControler(UUID kothUUID);
+
+	void findNewControler(UUID kothUUID);
+
+	void setNewControler(UUID kothUUID, Player player);
+
+	void applyPlayerWinner(UUID kothUUID, Player winner);
+
+	List<Player> getAllRegionPlayers(UUID kothUUID);
+
+	List<String> getActiveEventList();
+
+	HashMap<NextEventData, Long> getAllEvents();
+
+	HashMap<NextEventData, Long> getNextEvents();
+
+	void findNewControler(UUID kothUUID, Player player, boolean sameGroup);
+
+
+
 
 	
 
