@@ -283,6 +283,26 @@ public class KothAPIManager implements KothAPI {
 	@Override
 	public void findNewControler(UUID kothUUID, Player player, boolean sameGroup) {
 		
+	}
+
+	@Override
+	public boolean hasKothOwner(UUID koth) {
+		return false;
+	}
+
+	@Override
+	public Optional<UUID> getKothOwner(UUID koth) {
+		return Optional.empty();
+	}
+
+	@Override
+	public List<KothData> getKothOwned(UUID playerUUID) {
+		return null;
+	}
+
+	@Override
+	public Optional<KothData> createNewKoth(String name, Location loc1, Location loc2, UUID owner) {
+		return Optional.empty();
 	}	
 
 
