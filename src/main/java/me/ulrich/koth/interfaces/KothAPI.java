@@ -123,6 +123,14 @@ public interface KothAPI {
 
 	void findNewControler(UUID kothUUID, Player player, boolean sameGroup);
 
+	boolean hasKothOwner(UUID koth);
+
+	Optional<UUID> getKothOwner(UUID koth);
+
+	List<KothData> getKothOwned(UUID playerUUID);
+
+	Optional<KothData> createNewKoth(String name, Location loc1, Location loc2, UUID owner);
+
 
 
 
