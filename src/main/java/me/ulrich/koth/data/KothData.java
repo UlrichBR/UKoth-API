@@ -5,8 +5,6 @@ import java.util.UUID;
 
 import org.bukkit.Location;
 
-import me.ulrich.koth.data.KothEnum.LootType;
-
 
 public class KothData {
 	
@@ -21,9 +19,11 @@ public class KothData {
 	private GeneralSettings settings;
 	private int captureTime;
 	private MaxtimeSettings maxTime;
-	private LootType lootType;
+	private LootSettings lootType;
+	private String owner;
+	private int counter;
 
-	public KothData(String name, UUID uuid, Location loc1, Location loc2, List<String> commands, String icon, int captureTime, MaxtimeSettings maxTime, KeySettings keySettings, ProximitySettings proximitySettings, GeneralSettings settings, LootType lootType) {
+	public KothData(String name, UUID uuid, Location loc1, Location loc2, List<String> commands, String icon, int captureTime, MaxtimeSettings maxTime, KeySettings keySettings, ProximitySettings proximitySettings, GeneralSettings settings, LootSettings lootType, String owner, int counter) {
 		this.setName(name);
 		this.setUuid(uuid);
 		this.setLoc1(loc1);
@@ -36,6 +36,8 @@ public class KothData {
 		this.setProximitySettings(proximitySettings);
 		this.setSettings(settings);
 		this.setLootType(lootType);
+		this.setOwner(owner);
+		this.setCounter(counter);
 	}
 
 	public String getName() {
@@ -127,12 +129,28 @@ public class KothData {
 		this.maxTime = maxTime;
 	}
 
-	public LootType getLootType() {
+	public LootSettings getLootType() {
 		return lootType;
 	}
 
-	public void setLootType(LootType lootType) {
+	public void setLootType(LootSettings lootType) {
 		this.lootType = lootType;
+	}
+
+	public String getOwner() {
+		return owner;
+	}
+
+	public void setOwner(String owner) {
+		this.owner = owner;
+	}
+
+	public int getCounter() {
+		return counter;
+	}
+
+	public void setCounter(int counter) {
+		this.counter = counter;
 	}
 
 
