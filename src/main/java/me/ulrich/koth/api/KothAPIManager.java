@@ -8,12 +8,14 @@ import java.util.UUID;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import me.ulrich.koth.Koth;
 import me.ulrich.koth.data.CubRegionLoc;
 import me.ulrich.koth.data.IslandJoinLeaveData;
 import me.ulrich.koth.data.KothData;
+import me.ulrich.koth.data.LootsData;
 import me.ulrich.koth.data.NextEventData;
 import me.ulrich.koth.interfaces.GroupAPI;
 import me.ulrich.koth.interfaces.HologramAPI;
@@ -303,6 +305,26 @@ public class KothAPIManager implements KothAPI {
 	@Override
 	public Optional<KothData> createNewKoth(String name, Location loc1, Location loc2, UUID owner) {
 		return Optional.empty();
+	}
+
+	@Override
+	public boolean saveKothLoots(Inventory inventory, KothData koth) {
+		return false;
+	}
+
+	@Override
+	public boolean addLootKoth(UUID name, ItemStack hand) {
+		return false;
+	}
+
+	@Override
+	public void saveLootsData(LootsData loot) {
+		
+	}
+
+	@Override
+	public void saveKothData(KothData clan) {
+		
 	}	
 
 
