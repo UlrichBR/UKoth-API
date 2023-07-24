@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import me.ulrich.koth.api.CommandAPIManager;
 import me.ulrich.koth.api.KothAPIManager;
 import me.ulrich.koth.data.Addon;
 import me.ulrich.koth.data.Extension;
@@ -14,7 +15,8 @@ public class Koth extends JavaPlugin{
 	private static Koth Core;
 	private BukkitAudiences adventure;
 	private KothAPIManager kothAPI;
-	
+	private CommandAPIManager commandAPI;
+
 	//addon usage
 	private HashMap<Addon, Boolean> addonEnabledList = new HashMap<Addon, Boolean>();
 	//extension usage
@@ -55,6 +57,10 @@ public class Koth extends JavaPlugin{
 
 	public void setExtensionDisabledList(HashMap<Extension, Boolean> extensionDisabledList) {
 		this.extensionDisabledList = extensionDisabledList;
+	}
+
+	public CommandAPIManager getCommandAPI() {
+		return commandAPI;
 	}
 
 
