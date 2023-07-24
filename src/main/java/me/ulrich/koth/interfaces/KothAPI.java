@@ -8,11 +8,13 @@ import java.util.UUID;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import me.ulrich.koth.data.CubRegionLoc;
 import me.ulrich.koth.data.IslandJoinLeaveData;
 import me.ulrich.koth.data.KothData;
+import me.ulrich.koth.data.LootsData;
 import me.ulrich.koth.data.NextEventData;
 
 public interface KothAPI {
@@ -130,6 +132,14 @@ public interface KothAPI {
 	List<KothData> getKothOwned(UUID playerUUID);
 
 	Optional<KothData> createNewKoth(String name, Location loc1, Location loc2, UUID owner);
+
+	boolean saveKothLoots(Inventory inventory, KothData koth);
+
+	boolean addLootKoth(UUID name, ItemStack hand);
+
+	void saveLootsData(LootsData loot);
+
+	void saveKothData(KothData clan);
 
 
 
