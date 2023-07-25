@@ -22,9 +22,11 @@ public class KothData {
 	private LootSettings lootType;
 	private String owner;
 	private int counter;
+	private String colorName;
 
-	public KothData(String name, UUID uuid, Location loc1, Location loc2, List<String> commands, String icon, int captureTime, MaxtimeSettings maxTime, KeySettings keySettings, ProximitySettings proximitySettings, GeneralSettings settings, LootSettings lootType, String owner, int counter) {
+	public KothData(String name, String colorName, UUID uuid, Location loc1, Location loc2, List<String> commands, String icon, int captureTime, MaxtimeSettings maxTime, KeySettings keySettings, ProximitySettings proximitySettings, GeneralSettings settings, LootSettings lootType, String owner, int counter) {
 		this.setName(name);
+		this.setColorName(colorName);
 		this.setUuid(uuid);
 		this.setLoc1(loc1);
 		this.setLoc2(loc2);
@@ -151,6 +153,14 @@ public class KothData {
 
 	public void setCounter(int counter) {
 		this.counter = counter;
+	}
+
+	public String getColorName() {
+		return colorName;
+	}
+
+	public void setColorName(String colorName) {
+		this.colorName = colorName;
 	}
 
 
