@@ -325,11 +325,16 @@ public class KothAPIManager implements KothAPI {
 	@Override
 	public void saveKothData(KothData clan) {
 		
-	}	
-	
+	}
+
 	@Override
 	public boolean isUseGUI() {
 		return false;
+	}
+
+	@Override
+	public List<KothData> getActiveEventListData(boolean system) {
+		return null;
 	}	
 
 
