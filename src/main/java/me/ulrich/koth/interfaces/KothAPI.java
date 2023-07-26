@@ -140,6 +140,8 @@ public interface KothAPI {
 	void saveLootsData(LootsData loot);
 
 	void saveKothData(KothData clan);
+	
+	boolean isUseGUI();
 
 
 
