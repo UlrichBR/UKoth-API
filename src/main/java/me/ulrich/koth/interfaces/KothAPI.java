@@ -142,7 +142,8 @@ public interface KothAPI {
 	void saveKothData(KothData clan);
 	
 	boolean isUseGUI();
-
+	
+	List<KothData> getActiveEventListData(boolean system);
 
 
 
