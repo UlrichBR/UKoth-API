@@ -326,6 +326,11 @@ public class KothAPIManager implements KothAPI {
 	public void saveKothData(KothData clan) {
 		
 	}	
+	
+	@Override
+	public boolean isUseGUI() {
+		return false;
+	}	
 
 
 }
