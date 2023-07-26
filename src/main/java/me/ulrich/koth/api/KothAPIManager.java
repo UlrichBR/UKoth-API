@@ -335,6 +335,11 @@ public class KothAPIManager implements KothAPI {
 	@Override
 	public List<KothData> getActiveEventListData(boolean system) {
 		return null;
+	}
+
+	@Override
+	public HashMap<UUID, LootsData> getLootsData() {
+		return null;
 	}	
 
 
