@@ -23,8 +23,9 @@ public class KothData {
 	private String owner;
 	private int counter;
 	private String colorName;
+	private Location warp;
 
-	public KothData(String name, String colorName, UUID uuid, Location loc1, Location loc2, List<String> commands, String icon, int captureTime, MaxtimeSettings maxTime, KeySettings keySettings, ProximitySettings proximitySettings, GeneralSettings settings, LootSettings lootType, String owner, int counter) {
+	public KothData(String name, String colorName, UUID uuid, Location loc1, Location loc2, List<String> commands, String icon, int captureTime, MaxtimeSettings maxTime, KeySettings keySettings, ProximitySettings proximitySettings, GeneralSettings settings, LootSettings lootType, String owner, int counter, Location warp) {
 		this.setName(name);
 		this.setColorName(colorName);
 		this.setUuid(uuid);
@@ -40,6 +41,7 @@ public class KothData {
 		this.setLootType(lootType);
 		this.setOwner(owner);
 		this.setCounter(counter);
+		this.setWarp(warp);
 	}
 
 	public String getName() {
@@ -161,6 +163,14 @@ public class KothData {
 
 	public void setColorName(String colorName) {
 		this.colorName = colorName;
+	}
+
+	public Location getWarp() {
+		return warp;
+	}
+
+	public void setWarp(Location warp) {
+		this.warp = warp;
 	}
 
 
