@@ -2,12 +2,47 @@ package me.ulrich.koth.data;
 
 public class KothEnum {
 
+	public enum KothLangs{
+		EN, ES, RU;
+	}
+	
 	public enum KothSchedulerError{
 		MINPLAYER;
 	}
 	
-	public enum KothLangs{
-		EN;
+	public enum CmdType{
+		REWARD, CAPTURE, START, END;
+	}
+	
+	public enum KothExtensions {
+		BetterTeams, 
+		CMI,
+		DecentHolograms, 
+		FactionsUUID, 
+		Holograms, 
+		HolographicDisplays, 
+		SimpleClans, 
+		TAB, 
+		UltimateClans, 
+		UltimateClansLite,
+		IridiumSkyblock,
+		MedievalFactions,
+		AnimatedScoreboard,
+		SuperiorSkyblock2,
+		Lands,
+		SternalBoard,
+		GangsPlus,
+		FeatherBoard,
+		KingdomsX,
+		TownyAdvanced,
+		BSkyblock,
+		KingdomCraft;
+	}
+	
+	public enum ExtensionsReturn {
+		ERROR_REPO, ALREADY_UPDATED, ERROR_DOWNLOAD, SUCCESS_DOWNLOAD, ALREADY_EXISTS, NEED_RELOAD_ADDONS, GENERAL_ERROR
+		
+		
 	}
 	
 	public enum MsgUsage{
@@ -21,6 +56,7 @@ public class KothEnum {
 		SENDKOTHINSIDEENTER, 
 		SENDKOTHOUTSIDEENTER, 
 		SENDKOTHCAPTURE, 
+		SENDKOTHCAPTUREALL, 
 		SENDKOTHSTART, 
 		SENDKOTHENDWINNER, 
 		SENDKOTHENDNOWIN, 
@@ -28,6 +64,9 @@ public class KothEnum {
 		SENDKOTHCREATE;
 	}
 	
+	public enum ProximityType{
+		BLOCKS, WORLD, DISABLED, ALLWORLDS;
+	}
 
 	
 	public enum HoloPreference{
@@ -43,15 +82,23 @@ public class KothEnum {
 	}
 	
 	public enum MoneyType{
-		VAULT, PLAYERPOINTS, CLANSOULS, TOKENENCHANT, DISABLED;
+		VAULT, PLAYERPOINTS, CLANSOULS, TOKENENCHANT, DISABLED, CLANBANK;
 	}
 	
 	public enum KothStatus{
-		STOPED, ENABLED;
+		STOPPED, ENABLED;
 	}
 	
 	public enum MovementWay {
 		MOVE, TELEPORT, SPAWN, DISCONNECT, CHANGEWORLD, CHANGEREGION;
+	}
+	
+	public enum WarpInfo {
+		WORLD, X, Y, Z;
+	}
+	
+	public enum GeneralSettingsType{
+		ALLOWWITHOUTGROUP, ALLOWPLAYERWARP, VISIBLETOPLAYERS, STOPTIMEINDISPUTE;
 	}
 	
 	public enum CubLoc {
@@ -60,6 +107,10 @@ public class KothEnum {
 	
 	public enum EventFrequency{
 		DAILY, WEEKLY, MONTHLY;
+	}
+	
+	public enum SchedulerFlag{
+		MINPLAYERS;
 	}
 	
 	public enum EndAction{
@@ -71,11 +122,15 @@ public class KothEnum {
 	}
 	
 	public enum LootType{
-		KEY, DROP, INV;
+		KEY, DROP, INV, DISABLED;
 	}
 	
 	public enum TopType{
 		TOPPLAYER, TOPGROUP;
+	}
+	
+	public enum TopFind{
+		NAME, AMOUNT;
 	}
 	
 	public enum TopTime{
