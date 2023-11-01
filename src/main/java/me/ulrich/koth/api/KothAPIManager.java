@@ -31,339 +31,384 @@ public class KothAPIManager implements KothAPI {
 	}
 	
 	@Override
-	public boolean isUseGUI() {
-		return Koth.getCore().isUseGUI();
-	}
-	
-	@Override
 	public String getTag() {
-		return (Koth.getCore().getTag());
-	}
-	
-	@Override
-	public boolean hasGroupImplemented() {
-		return (Koth.getCore().getGroupManager().hasGroupAPIEnabled());
-	}
-	
-	@Override
-	public void addGroupImplement(GroupAPI impl) {
-		Koth.getCore().getGroupManager().setGroupAPI(impl);
+		return null;
 	}
 	
 	@Override
 	public boolean hasHoloImplemented() {
-		return Koth.getCore().getHologramManager().isHoloEnabled();
+		return false;
 	}
 	
 	@Override
-	public void addHoloImplement(HologramAPI impl) {
-		Koth.getCore().getHologramManager().setHoloAPI(impl);
+	public void addHoloImplement(HologramAPI impl) {}
+	
+	@Override
+	public boolean hasGroupImplemented() {
+		return false;
 	}
+	
+	@Override
+	public void addGroupImplement(GroupAPI impl) {}
 	
 	@Override
 	public boolean hasScoreboardImplemented() {
-		return Koth.getCore().getScoreboardManager().hasScoreboardAPIEnabled();
+		return false;
 	}
 	
 	@Override
-	public void addScoreboardImplement(ScoreboardAPI impl) {
-		Koth.getCore().getScoreboardManager().setScoreboardAPi(impl);
-	}
+	public void addScoreboardImplement(ScoreboardAPI impl) {}
 	
 	@Override
 	public boolean startKothEvent(UUID kothUUID, Player sender) {
-		return Koth.getCore().getEventManager().startKothEvent(kothUUID, sender);
+		return false;
 	}
 	
 	@Override
 	public boolean endKothEvent(String kothName) {
-		return Koth.getCore().getEventManager().endKothEvent(kothName);
+		return false;
 	}
 	
 	@Override
 	public boolean endKothEvent(UUID kothUUID) {
-		return Koth.getCore().getEventManager().endKothEvent(kothUUID);
+		return false;
 	}
 	
 	@Override
 	public boolean endKothEvent(UUID kothUUID, Player winner) {
-		return Koth.getCore().getEventManager().endKothEvent(kothUUID, winner);
+		return false;
 	}
 	
 	@Override
 	public boolean hasKothStarted(String kothName) {
-		return Koth.getCore().getEventManager().hasKothStarted(kothName);
+		return false;
 	}
 	
 	@Override
 	public boolean hasKothStarted(UUID kothUUID) {
-		return Koth.getCore().getEventManager().hasKothStarted(kothUUID);
+		return false;
 	}
-
+	
 	@Override
 	public Optional<String> getKothName(UUID kothUUID) {
-		return Koth.getCore().getKothManager().getKothName(kothUUID);
+		return null;
 	}
 	
 	@Override
 	public Optional<UUID> getKothUUID(String kothName) {
-		return Koth.getCore().getKothManager().getKothUUID(kothName);
+		return null;
 	}
 	
 	@Override
 	public Optional<KothData> getKoth(UUID kothUUID) {
-		return Koth.getCore().getKothManager().getKoth(kothUUID);
+		return null;
 	}
-	@Override
-	public Optional<KothData> getKoth(String name) {
-		return Koth.getCore().getKothManager().getKoth(name);
-	}
-	
-	@Override
-	public Optional<CubRegionLoc> getKoth(Location location) {
-		return Koth.getCore().getKothManager().getKoth(location);
-	}
-	
-	@Override
-	public Optional<KothData> getKothByLocation(Location location) {
-		return Koth.getCore().getKothManager().getKothByLocation(location);
-	}
-	
+
 	@Override
 	public List<Player> getAdminMode() {
-		return Koth.getCore().getKothManager().getAdminMode();
+		return null;
 	}
 	
 	@Override
 	public HashMap<UUID, IslandJoinLeaveData> getPlayerRegion() {
-		return Koth.getCore().getKothManager().getPlayerRegion();
+		return null;
 	}
 	
 	@Override
 	public HashMap<UUID, KothData> getKothData() {
-		return Koth.getCore().getKothManager().getKothData();
+		return null;
 	}
 	
 	@Override
 	public Set<UUID> getAllKothEvent(){
-		return Koth.getCore().getKothManager().getKothData().keySet();
+		return null;
 	}
 	
 	@Override
 	public String parseText(KothData koth, String text) {
-		return Koth.getCore().getKothPlaceholderManager().parseText(koth, text);
+		return null;
 	}
 	
 	@Override
 	public String parseText(UUID playerUUID, String text) {
-		return Koth.getCore().getKothPlaceholderManager().parseText(playerUUID, text);
+		return null;
 	}
+
+	@Override
+	public Optional<CubRegionLoc> getKoth(Location location) {
+		return Optional.empty();
+	}
+
+	@Override
+	public Optional<KothData> getKothByLocation(Location location) {
+		return Optional.empty();
+	}
+
+	@Override
+	public Optional<KothData> getKoth(String name) {
+		return null;
+	}
+
 	@Override
 	public boolean toggleStarterEnabled(boolean state) {
-		return Koth.getCore().getKothManager().toggleStarterEnabled(state);
+		return false;
 	}
+
 	@Override
 	public boolean togglePlayerAdminMode(Player player) {
-		return Koth.getCore().getKothManager().togglePlayerAdminMode(player);
+		return false;
 	}
-	
+
 	@Override
 	public boolean kothExists(UUID name) {
-		return Koth.getCore().getKothManager().kothExists(name);
+		return false;
 	}
-	
+
 	@Override
 	public Optional<KothData> createNewKoth(String name, Location loc1, Location loc2) {
-		return Koth.getCore().getKothManager().createNewKoth(name, loc1, loc2);
+		return Optional.empty();
 	}
-	
-	@Override
-	public Optional<KothData> createNewKoth(String name, Location loc1, Location loc2, UUID owner) {
-		return Koth.getCore().getKothManager().createNewKoth(name, loc1, loc2, owner);
-	}
-	
-	@Override
-	public Optional<KothData> createNewKoth(String name, Location loc1, Location loc2, UUID owner, Optional<String> mode) {
-		return Koth.getCore().getKothManager().createNewKoth(name, loc1, loc2, owner, mode);
-	}
-	
+
 	@Override
 	public boolean deleteKoth(UUID name) {
-		return Koth.getCore().getKothManager().deleteKoth(name);
+		return false;
 	}
+
 	@Override
 	public boolean moveKoth(UUID name, Location loc1, Location loc2) {
-		return Koth.getCore().getKothManager().moveKoth(name, loc1, loc2);
+		return false;
 	}
-	
-	@Override
-	public boolean hasKothOwner(UUID koth) {
-		return Koth.getCore().getKothManager().hasKothOwner(koth);
-	}
-	
-	@Override
-	public Optional<UUID> getKothOwner(UUID koth) {
-		return Koth.getCore().getKothManager().getKothOwner(koth);
-	}
-	
-	@Override
-	public List<KothData> getKothOwned(UUID playerUUID){
-		return Koth.getCore().getKothManager().getKothOwned(playerUUID);
-	}
-	
+
 	@Override
 	public boolean teleportKoth(Player player, UUID uuid) {
-		return Koth.getCore().getKothManager().teleportKoth(player, uuid);
+		return false;
 	}
+
 	@Override
 	public Optional<Location> getCoordKoth(UUID uuid) {
-		return Koth.getCore().getKothManager().getCoordKoth(uuid);
+		return Optional.empty();
 	}
+
 	@Override
 	public Optional<ItemStack> getWand() {
-		return Koth.getCore().getKothManager().getWand();
+		return Optional.empty();
 	}
+
 	@Override
 	public Optional<ItemStack> getKeyWand() {
-		return Koth.getCore().getKothManager().getKeyWand();
+		return Optional.empty();
 	}
+
 	@Override
 	public Optional<ItemStack> getKothKey(KothData koth, int amount) {
-		return Koth.getCore().getKothManager().getKothKey(koth, amount);
+		return Optional.empty();
 	}
+
 	@Override
 	public Optional<ItemStack> getStarterItem(KothData koth, int amount) {
-		return Koth.getCore().getKothManager().getStarterItem(koth, amount);
+		return Optional.empty();
 	}
+
 	@Override
 	public boolean clearWand() {
-		return Koth.getCore().getKothManager().clearWand();
+		return false;
 	}
+
 	@Override
 	public boolean checkWand() {
-		return Koth.getCore().getKothManager().checkWand();
+		return false;
 	}
-	
+
 	@Override
 	public boolean changeIconKoth(UUID name, ItemStack hand) {
-		return Koth.getCore().getKothManager().changeIconKoth(name, hand);
+		return false;
 	}
+
+	@Override
+	public HashMap<NextEventData, Long> getNextEvents(UUID kothUUID) {
+		return null;
+	}
+
 	@Override
 	public void stopAllEvents() {
-		Koth.getCore().getEventManager().stopAllEvents();
+		
 	}
+
 	@Override
 	public void removeControler(UUID kothUUID) {
-		Koth.getCore().getEventManager().removeControler(kothUUID);
+		
 	}
 
 	@Override
 	public void applyPlayerWinner(UUID kothUUID, Player winner) {
-		Koth.getCore().getEventManager().applyPlayerWinner(kothUUID, winner);
+		
 	}
+
 	@Override
-	public List<Player> getAllRegionPlayers(UUID kothUUID){
-		return Koth.getCore().getEventManager().getAllRegionPlayers(kothUUID);
+	public List<Player> getAllRegionPlayers(UUID kothUUID) {
+		return null;
 	}
+
 	@Override
 	public List<String> getActiveEventList() {
-		return Koth.getCore().getEventManager().getActiveEventList();
+		return null;
 	}
-	
-	@Override
-	public List<KothData> getActiveEventListData(boolean system) {
-		return Koth.getCore().getEventManager().getActiveEventListData(system);
-	}
-	
+
 	@Override
 	public HashMap<NextEventData, Long> getAllEvents() {
-		return Koth.getCore().getEventManager().getAllEvents();
+		return null;
 	}
+
 	@Override
 	public HashMap<NextEventData, Long> getNextEvents() {
-		return Koth.getCore().getEventManager().getNextEvents();
+		return null;
 	}
+
 	@Override
-	public HashMap<NextEventData, Long> getNextEvents(UUID kothUUID) {
-		return Koth.getCore().getEventManager().getNextEvents(kothUUID);
+	public boolean hasKothOwner(UUID koth) {
+		return false;
 	}
+
 	@Override
-	public void saveKothData(KothData clan) {
-		Koth.getCore().getKothManager().saveKothData(clan);
+	public Optional<UUID> getKothOwner(UUID koth) {
+		return Optional.empty();
 	}
-	
+
+	@Override
+	public List<KothData> getKothOwned(UUID playerUUID) {
+		return null;
+	}
+
+	@Override
+	public Optional<KothData> createNewKoth(String name, Location loc1, Location loc2, UUID owner) {
+		return Optional.empty();
+	}
+
 	@Override
 	public boolean saveKothLoots(Inventory inventory, KothData koth) {
-		return Koth.getCore().getLootsManager().saveKothLoots(inventory, koth);
+		return false;
 	}
+
 	@Override
 	public boolean addLootKoth(UUID name, ItemStack hand) {
-		return Koth.getCore().getLootsManager().addLootKoth(name, hand);
+		return false;
 	}
+
 	@Override
 	public void saveLootsData(LootsData loot) {
-		Koth.getCore().getLootsManager().saveLootsData(loot);
+		
 	}
-	
+
+	@Override
+	public void saveKothData(KothData clan) {
+		
+	}
+
+	@Override
+	public boolean isUseGUI() {
+		return false;
+	}
+
+	@Override
+	public List<KothData> getActiveEventListData(boolean system) {
+		return null;
+	}
+
 	@Override
 	public HashMap<UUID, LootsData> getLootsData() {
-		return Koth.getCore().getLootsManager().getLootsData();
+		return null;
 	}
+
 	@Override
-	public Optional<ModeData> getKothDefaultMode(){
-		return Koth.getCore().getModeManager().getKothDefaultMode();
+	public Optional<KothData> createNewKoth(String name, Location loc1, Location loc2, UUID owner,
+			Optional<String> mode) {
+		
+		return Optional.empty();
 	}
+
 	@Override
-	public Optional<String> getKothDefaultModeName(){
-		return Koth.getCore().getModeManager().getKothDefaultModeName();
+	public Optional<ModeData> getKothDefaultMode() {
+		
+		return Optional.empty();
 	}
+
 	@Override
-	public List<String> getPlaceholdersList(Optional<ModeData> mode){
-		return Koth.getCore().getModeManager().getPlaceholdersList(mode);
+	public Optional<String> getKothDefaultModeName() {
+		
+		return Optional.empty();
 	}
+
+	@Override
+	public List<String> getPlaceholdersList(Optional<ModeData> mode) {
+		
+		return null;
+	}
+
 	@Override
 	public boolean isDefaultMode(String name) {
-		return Koth.getCore().getModeManager().isDefaultMode(name);
+		
+		return false;
 	}
+
 	@Override
 	public boolean isCurrentMode(UUID kothUUID, Optional<ModeData> mode) {
-		return Koth.getCore().getModeManager().isCurrentMode(kothUUID, mode);
+		
+		return false;
 	}
+
 	@Override
 	public boolean isDefaultMode(UUID kothUUID) {
-		return Koth.getCore().getModeManager().isDefaultMode(kothUUID);
+		
+		return false;
 	}
+
 	@Override
 	public Optional<ModeData> getKothMode(UUID kothUUID) {
-		return Koth.getCore().getModeManager().getKothMode(kothUUID);
+		
+		return Optional.empty();
 	}
+
 	@Override
 	public boolean isDefaultMode(Optional<ModeData> mode) {
-		return Koth.getCore().getModeManager().isDefaultMode(mode);
+		
+		return false;
 	}
+
 	@Override
-	public Optional<ModeData> registerMode(String name, Optional<Addon> addon,String icon,String desc){
-		return Koth.getCore().getModeManager().registerMode(name, addon, icon, desc);
+	public Optional<ModeData> registerMode(String name, Optional<Addon> addon, String icon, String desc) {
+		
+		return Optional.empty();
 	}
+
 	@Override
-	public boolean unRegisterMode(String name){
-		return Koth.getCore().getModeManager().unRegisterMode(name);
+	public boolean unRegisterMode(String name) {
+		
+		return false;
 	}
+
 	@Override
 	public boolean hasMode(String string) {
-		return Koth.getCore().getModeManager().hasMode(string);
+		
+		return false;
 	}
+
 	@Override
 	public Optional<ModeData> getMode(String string) {
-		return Koth.getCore().getModeManager().getMode(string);
+		
+		return Optional.empty();
 	}
+
 	@Override
 	public Optional<String> getModeId(String string) {
-		return Koth.getCore().getModeManager().getModeId(string);
+		
+		return Optional.empty();
 	}
+
 	@Override
 	public HashMap<String, ModeData> getModes() {
-		return Koth.getCore().getModeManager().getModes();
-	}
-	
+		
+		return null;
+	}	
+
+
 }
