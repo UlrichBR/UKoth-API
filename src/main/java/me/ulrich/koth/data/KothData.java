@@ -1,6 +1,7 @@
 package me.ulrich.koth.data;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.bukkit.Location;
@@ -24,8 +25,9 @@ public class KothData {
 	private int counter;
 	private String colorName;
 	private Location warp;
+	private Optional<String> mode;
 
-	public KothData(String name, String colorName, UUID uuid, Location loc1, Location loc2, List<String> commands, String icon, int captureTime, MaxtimeSettings maxTime, KeySettings keySettings, ProximitySettings proximitySettings, GeneralSettings settings, LootSettings lootType, String owner, int counter, Location warp) {
+	public KothData(String name, String colorName, UUID uuid, Location loc1, Location loc2, List<String> commands, String icon, int captureTime, MaxtimeSettings maxTime, KeySettings keySettings, ProximitySettings proximitySettings, GeneralSettings settings, LootSettings lootType, String owner, int counter, Location warp, Optional<String> mode2) {
 		this.setName(name);
 		this.setColorName(colorName);
 		this.setUuid(uuid);
@@ -42,6 +44,7 @@ public class KothData {
 		this.setOwner(owner);
 		this.setCounter(counter);
 		this.setWarp(warp);
+		this.setMode(mode2);
 	}
 
 	public String getName() {
@@ -171,6 +174,14 @@ public class KothData {
 
 	public void setWarp(Location warp) {
 		this.warp = warp;
+	}
+
+	public Optional<String> getMode() {
+		return mode;
+	}
+
+	public void setMode(Optional<String> mode) {
+		this.mode = mode;
 	}
 
 
