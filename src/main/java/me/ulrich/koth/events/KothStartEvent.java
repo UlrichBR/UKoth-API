@@ -2,7 +2,7 @@ package me.ulrich.koth.events;
 
 import java.util.UUID;
 
-import org.bukkit.entity.Player;
+import org.bukkit.command.CommandSender;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
@@ -12,11 +12,11 @@ public class KothStartEvent extends Event implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
     private boolean cancelled;
 	private UUID kothUUID;
-	private Player player;
+	private CommandSender player;
     
-    public KothStartEvent(UUID kothUUID, Player player) {
+    public KothStartEvent(UUID kothUUID, CommandSender sender) {
     	this.setKothUUID(kothUUID);
-    	this.setPlayer(player);
+    	this.setPlayer(sender);
     }
     
 	public boolean isCancelled() {
@@ -43,11 +43,11 @@ public class KothStartEvent extends Event implements Cancellable {
 		this.kothUUID = kothUUID;
 	}
 
-	public Player getPlayer() {
+	public CommandSender getPlayer() {
 		return player;
 	}
 
-	public void setPlayer(Player player) {
+	public void setPlayer(CommandSender player) {
 		this.player = player;
 	}
 

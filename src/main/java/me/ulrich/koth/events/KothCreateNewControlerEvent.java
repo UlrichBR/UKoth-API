@@ -3,19 +3,29 @@ package me.ulrich.koth.events;
 import java.util.UUID;
 
 import org.bukkit.entity.Player;
+import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class KothCaptureEvent extends Event {
+public class KothCreateNewControlerEvent extends Event implements Cancellable {
 
 	private static final HandlerList handlers = new HandlerList();
+    private boolean cancelled;
 	private UUID kothUUID;
-	private Player player;
+	private Player constoler;
     
-    public KothCaptureEvent(UUID kothUUID, Player player) {
+    public KothCreateNewControlerEvent(UUID kothUUID, Player constoler) {
     	this.setKothUUID(kothUUID);
-    	this.setPlayer(player);
+    	this.setControler(constoler);
     }
+    
+	public boolean isCancelled() {
+		return cancelled;
+	}
+
+	public void setCancelled(boolean cancelled) {
+		this.cancelled = cancelled;
+	}
 	
     public HandlerList getHandlers() {
         return handlers;
@@ -33,13 +43,15 @@ public class KothCaptureEvent extends Event {
 		this.kothUUID = kothUUID;
 	}
 
-	public Player getPlayer() {
-		return player;
+	public Player getControler() {
+		return constoler;
 	}
 
-	public void setPlayer(Player player) {
-		this.player = player;
+	public void setControler(Player constoler) {
+		this.constoler = constoler;
 	}
+
+
 
 
 }
