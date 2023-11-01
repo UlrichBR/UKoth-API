@@ -11,10 +11,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import me.ulrich.koth.data.Addon;
 import me.ulrich.koth.data.CubRegionLoc;
 import me.ulrich.koth.data.IslandJoinLeaveData;
 import me.ulrich.koth.data.KothData;
 import me.ulrich.koth.data.LootsData;
+import me.ulrich.koth.data.ModeData;
 import me.ulrich.koth.data.NextEventData;
 
 public interface KothAPI {
@@ -30,10 +32,6 @@ public interface KothAPI {
 	void addHoloImplement(HologramAPI impl);
 	
 	boolean hasHoloImplemented();
-	
-	boolean startKothEvent(String kothName);
-
-	boolean startKothEvent(UUID kothUUID);
 
 	boolean endKothEvent(String kothName);
 
@@ -47,13 +45,13 @@ public interface KothAPI {
 
 	boolean hasKothStarted(UUID kothUUID);
 
-	UUID getKothUUID(String kothName);
+	Optional<UUID> getKothUUID(String kothName);
 
-	String getKothName(UUID kothUUID);
+	Optional<String> getKothName(UUID kothUUID);
 
 	String getTag();
 
-	KothData getKoth(UUID kothUUID);
+	Optional<KothData> getKoth(UUID kothUUID);
 
 	Optional<CubRegionLoc> getKoth(Location location);
 	
@@ -71,15 +69,19 @@ public interface KothAPI {
 
 	String parseText(UUID playerUUID, String text);
 
-	KothData getKoth(String name);
+	Optional<KothData> getKoth(String name);
 
 	boolean toggleStarterEnabled(boolean state);
 
 	boolean togglePlayerAdminMode(Player player);
 
 	boolean kothExists(UUID name);
-
+	
 	Optional<KothData> createNewKoth(String name, Location loc1, Location loc2);
+	
+	Optional<KothData> createNewKoth(String name, Location loc1, Location loc2, UUID owner);
+
+	Optional<KothData> createNewKoth(String name, Location loc1, Location loc2, UUID owner, Optional<String> mode);
 
 	boolean deleteKoth(UUID name);
 
@@ -109,10 +111,6 @@ public interface KothAPI {
 
 	void removeControler(UUID kothUUID);
 
-	void findNewControler(UUID kothUUID);
-
-	void setNewControler(UUID kothUUID, Player player);
-
 	void applyPlayerWinner(UUID kothUUID, Player winner);
 
 	List<Player> getAllRegionPlayers(UUID kothUUID);
@@ -123,15 +121,11 @@ public interface KothAPI {
 
 	HashMap<NextEventData, Long> getNextEvents();
 
-	void findNewControler(UUID kothUUID, Player player, boolean sameGroup);
-
 	boolean hasKothOwner(UUID koth);
 
 	Optional<UUID> getKothOwner(UUID koth);
 
 	List<KothData> getKothOwned(UUID playerUUID);
-
-	Optional<KothData> createNewKoth(String name, Location loc1, Location loc2, UUID owner);
 
 	boolean saveKothLoots(Inventory inventory, KothData koth);
 
@@ -146,6 +140,35 @@ public interface KothAPI {
 	List<KothData> getActiveEventListData(boolean system);
 
 	HashMap<UUID, LootsData> getLootsData();
+
+	Optional<ModeData> getKothDefaultMode();
+
+	Optional<String> getKothDefaultModeName();
+
+	List<String> getPlaceholdersList(Optional<ModeData> mode);
+
+	boolean isDefaultMode(String name);
+
+	boolean isCurrentMode(UUID kothUUID, Optional<ModeData> mode);
+
+	boolean isDefaultMode(UUID kothUUID);
+
+	Optional<ModeData> getKothMode(UUID kothUUID);
+
+	boolean isDefaultMode(Optional<ModeData> mode);
+
+	Optional<ModeData> registerMode(String name, Optional<Addon> addon, String icon, String desc);
+
+	boolean unRegisterMode(String name);
+
+	boolean hasMode(String string);
+
+	Optional<ModeData> getMode(String string);
+
+	Optional<String> getModeId(String string);
+
+	HashMap<String, ModeData> getModes();
+
 
 
 
