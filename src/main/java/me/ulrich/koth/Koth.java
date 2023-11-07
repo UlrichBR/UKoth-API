@@ -5,6 +5,7 @@ import java.util.HashMap;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.ulrich.koth.api.CommandAPIManager;
+import me.ulrich.koth.api.ImpAPIManager;
 import me.ulrich.koth.api.KothAPIManager;
 import me.ulrich.koth.data.Addon;
 import me.ulrich.koth.data.Extension;
@@ -15,6 +16,7 @@ public class Koth extends JavaPlugin{
 	private static Koth Core;
 	private BukkitAudiences adventure;
 	private KothAPIManager kothAPI;
+	private ImpAPIManager impAPI;
 	private CommandAPIManager commandAPI;
 
 	//addon usage
@@ -61,6 +63,10 @@ public class Koth extends JavaPlugin{
 
 	public CommandAPIManager getCommandAPI() {
 		return commandAPI;
+	}
+
+	public ImpAPIManager getImpAPI() {
+		return impAPI;
 	}
 
 
