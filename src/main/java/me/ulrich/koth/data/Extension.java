@@ -4,139 +4,132 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.HashMap;
 
-import org.apache.commons.lang.exception.ExceptionUtils;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.ulrich.koth.extension.ExtensionSerializer;
-import me.ulrich.koth.extension.ExtensionClassloader;
+import me.ulrich.koth.loader.Serializer;
+import me.ulrich.koth.loader.extension.ExtensionClassloader;
 
 public abstract class Extension {
 	private boolean enabled;
-	private ExtensionSerializer dataSerializer;
-	private ExtensionSerializer configSerializer;
+	private Serializer dataSerializer;
+	private Serializer configSerializer;
 	private JavaPlugin instance;
 	private String name;
 	private String author;
 	private String version;
 	private String require;
+	private String description;
+	private String category;
 	private ExtensionClassloader classLoader;
 	private File addonDataFolder;
 	private HashMap<String, InputStream> addonFiles;
 
 	public boolean isEnabled() {
-		return this.enabled;
+		return false;
 	}
 
 	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
+		
 	}
 
 	public JavaPlugin getInstance() {
-		return this.instance;
+		return null;
 	}
 
 	public String getName() {
-		return this.name;
+		return null;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		
 	}
 
 	public ExtensionClassloader getClassLoader() {
-		return this.classLoader;
+		return null;
 	}
 
 	public void setClassLoader(ExtensionClassloader classLoader) {
-		this.classLoader = classLoader;
+		
 	}
 
 	public File getAddonDataFolder() {
-		return this.addonDataFolder;
+		return null;
 	}
 
-	public void enable(JavaPlugin instance, File addonDataFolder, ExtensionSerializer dataSerializer,
-			ExtensionSerializer configSerializer) {
+	public void enable(JavaPlugin instance, File addonDataFolder, Serializer dataSerializer,
+			Serializer configSerializer) {
 
-		try {
-			if (isEnabled())
-				this.instance.getLogger()
-						.warning("Error extension: " + addonDataFolder.getName() + ", The extension is already enabled.");
-			this.instance = instance;
-			this.addonDataFolder = addonDataFolder;
-			this.dataSerializer = dataSerializer;
-			this.configSerializer = configSerializer;
-			addonDataFolder.mkdirs();
-			onEnable();
-			setEnabled(true);
-		} catch (Exception e) {
-			logThis(e);
-		}
 	}
 
 	protected boolean logThis(Exception e) {
-		try {
-			String stacktrace = ExceptionUtils.getStackTrace(e);
-			//new UtilsManager((me.ulrich.clans.Clans) Bukkit.getPluginManager().getPlugin("UltimateClans")).addLog(stacktrace, "extension-"+addonDataFolder.getName()+"-stacktrace");
-			this.instance.getLogger().warning("Error extension: " + addonDataFolder.getName() + ", StackTrace: saved in /logs/extension-"+addonDataFolder.getName()+"-stacktrace.log");
-			return true;
-		} catch (ClassCastException X) {
-			this.instance.getLogger().warning("Error extension: " + addonDataFolder.getName() + ", StackTrace: Error to save log!");
 
-		}
 
 		return false;
 
 	}
 
 	public void disable() {
-		if (!isEnabled())
-			throw new IllegalStateException("Cannot disable the extension when it isn't enabled");
-		onDisable();
-		setEnabled(false);
+
 	}
 
 	public abstract void onEnable();
 
 	public abstract void onDisable();
 
-	public ExtensionSerializer getDataSerializer() {
-		return this.dataSerializer;
+	public Serializer getDataSerializer() {
+		return null;
 	}
 
-	public ExtensionSerializer getConfigSerializer() {
-		return this.configSerializer;
+	public Serializer getConfigSerializer() {
+		return null;
 	}
 
 	public String getAuthor() {
-		return author;
+		return null;
 	}
 
 	public void setAuthor(String author) {
-		this.author = author;
+		
 	}
 
 	public String getVersion() {
-		return version;
+		return null;
 	}
 
 	public void setVersion(String version) {
-		this.version = version;
+		
 	}
 
+	public String getDescription() {
+		return null;
+	}
+	
+	public void setDescription(String description) {
+		
+	}
+	
 	public HashMap<String, InputStream> getAddonFiles() {
-		return addonFiles;
+		return null;
 	}
 
 	public void setAddonFiles(HashMap<String, InputStream> addonFiles) {
-		this.addonFiles = addonFiles;
+		
 	}
 
 	public String getRequire() {
-		return require;
+		return null;
 	}
 
 	public void setRequire(String require) {
-		this.require = require;
+		
+	}
+
+	public String getCategory() {
+		return null;
+	}
+
+	public void setCategory(String category) {
+		
 	}
 }
+

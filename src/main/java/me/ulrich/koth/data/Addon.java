@@ -4,11 +4,10 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.HashMap;
 
-import org.apache.commons.lang.exception.ExceptionUtils;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.ulrich.koth.addon.AddonClassloader;
-import me.ulrich.koth.addon.Serializer;
+import me.ulrich.koth.loader.Serializer;
+import me.ulrich.koth.loader.addon.AddonClassloader;
 
 public abstract class Addon {
 	private boolean enabled;
@@ -24,66 +23,44 @@ public abstract class Addon {
 	private HashMap<String, InputStream> addonFiles;
 
 	public boolean isEnabled() {
-		return this.enabled;
+		return false;
 	}
 
 	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
+		
 	}
 
 	public JavaPlugin getInstance() {
-		return this.instance;
+		return null;
 	}
 
 	public String getName() {
-		return this.name;
+		return null;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		
 	}
 
 	public AddonClassloader getClassLoader() {
-		return this.classLoader;
+		return null;
 	}
 
 	public void setClassLoader(AddonClassloader classLoader) {
-		this.classLoader = classLoader;
+		
 	}
 
 	public File getAddonDataFolder() {
-		return this.addonDataFolder;
+		return null;
 	}
 
 	public void enable(JavaPlugin instance, File addonDataFolder, Serializer dataSerializer,
 			Serializer configSerializer) {
 
-		try {
-			if (isEnabled())
-				this.instance.getLogger()
-						.warning("Error addon: " + addonDataFolder.getName() + ", The addon is already enabled.");
-			this.instance = instance;
-			this.addonDataFolder = addonDataFolder;
-			this.dataSerializer = dataSerializer;
-			this.configSerializer = configSerializer;
-			addonDataFolder.mkdirs();
-			onEnable();
-			setEnabled(true);
-		} catch (Exception e) {
-			logThis(e);
-		}
 	}
 
 	protected boolean logThis(Exception e) {
-		try {
-			String stacktrace = ExceptionUtils.getStackTrace(e);
-			//new UtilsManager((me.ulrich.clans.Clans) Bukkit.getPluginManager().getPlugin("UltimateClans")).addLog(stacktrace, "addon-"+addonDataFolder.getName()+"-stacktrace");
-			this.instance.getLogger().warning("Error addon: " + addonDataFolder.getName() + ", StackTrace: saved in /logs/addon-"+addonDataFolder.getName()+"-stacktrace.log");
-			return true;
-		} catch (ClassCastException X) {
-			this.instance.getLogger().warning("Error addon: " + addonDataFolder.getName() + ", StackTrace: Error to save log!");
-
-		}
+		
 
 		return false;
 
@@ -101,11 +78,11 @@ public abstract class Addon {
 	public abstract void onDisable();
 
 	public Serializer getDataSerializer() {
-		return this.dataSerializer;
+		return null;
 	}
 
 	public Serializer getConfigSerializer() {
-		return this.configSerializer;
+		return null;
 	}
 
 	public String getAuthor() {
@@ -140,3 +117,4 @@ public abstract class Addon {
 		this.require = require;
 	}
 }
+
