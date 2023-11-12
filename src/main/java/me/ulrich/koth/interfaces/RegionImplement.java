@@ -30,6 +30,10 @@ public interface RegionImplement {
 	
 	List<String> getWorldRegionList(World world);
 	
+	HashMap<String, Location[]> getWorldRegionCorners(World world);
+	
+	HashMap<String, Location[]> findWorldRegionCorners(World world, String region);
+	
 	List<UUID> getOwners(Location loc);
 	
 	List<UUID> getMembers(Location loc);
