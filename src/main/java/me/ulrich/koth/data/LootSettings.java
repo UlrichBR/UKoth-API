@@ -6,10 +6,14 @@ public class LootSettings {
 
 	private LootType type;
 	private int chance;
+	private int maxAmount;
+	private boolean group;
 
-	public LootSettings(LootType type, int chance) {
+	public LootSettings(LootType type, int chance, int maxAmount, boolean group) {
 		this.setType(type);
 		this.setChance(chance);
+		this.setMaxAmount(maxAmount);
+		this.setGroup(group);
 	}
 
 	public LootType getType() {
@@ -26,6 +30,22 @@ public class LootSettings {
 
 	public void setChance(int chance) {
 		this.chance = chance;
+	}
+
+	public int getMaxAmount() {
+		return maxAmount;
+	}
+
+	public void setMaxAmount(int maxAmount) {
+		this.maxAmount = maxAmount;
+	}
+
+	public boolean isGroup() {
+		return group;
+	}
+
+	public void setGroup(boolean group) {
+		this.group = group;
 	}
 
 
