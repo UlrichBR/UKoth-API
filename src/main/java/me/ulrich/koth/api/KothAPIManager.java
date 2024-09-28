@@ -15,6 +15,7 @@ import me.ulrich.koth.Koth;
 import me.ulrich.koth.data.Addon;
 import me.ulrich.koth.data.CubRegionLoc;
 import me.ulrich.koth.data.EventData;
+import me.ulrich.koth.data.GuiData;
 import me.ulrich.koth.data.IslandJoinLeaveData;
 import me.ulrich.koth.data.KothData;
 import me.ulrich.koth.data.KothEnum.CubLoc;
@@ -412,6 +413,11 @@ public class KothAPIManager implements KothAPI {
 
 	@Override
 	public List<Player> getRegionPlayers(UUID kothUUID, CubLoc loc) {
+		return null;
+	}
+
+	@Override
+	public HashMap<String, GuiData> getInsertGui() {
 		return null;
 	}	
 
