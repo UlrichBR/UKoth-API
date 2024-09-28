@@ -61,4 +61,21 @@ public class CommandAPIManager implements CommandAPI {
 		
 	}
 
+	@Override
+	public void unRegisterAdmCommand(String command) {
+		
+	}
+
+	@Override
+	public void registerAdmCommand(String alias, KothCommand command) {
+		
+	}
+
+	@Override
+	public void insertAdmCommand(String command, String permission, String alias, double value, int cooldown,
+			CommandData_show data, CommandData_title title, CommandData_actionbar actionbar, CommandData_sound sound,
+			HashMap<String, CommandData_show> subcommands, CommandData_disable disable) {
+		
+	}
+
 }
