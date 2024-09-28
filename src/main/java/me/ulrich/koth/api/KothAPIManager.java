@@ -14,8 +14,11 @@ import org.bukkit.inventory.ItemStack;
 import me.ulrich.koth.Koth;
 import me.ulrich.koth.data.Addon;
 import me.ulrich.koth.data.CubRegionLoc;
+import me.ulrich.koth.data.EventData;
 import me.ulrich.koth.data.IslandJoinLeaveData;
 import me.ulrich.koth.data.KothData;
+import me.ulrich.koth.data.KothEnum.CubLoc;
+import me.ulrich.koth.data.KothEnum.KothStatus;
 import me.ulrich.koth.data.LootsData;
 import me.ulrich.koth.data.ModeData;
 import me.ulrich.koth.data.NextEventData;
@@ -389,6 +392,26 @@ public class KothAPIManager implements KothAPI {
 	@Override
 	public HashMap<String, ModeData> getModes() {
 		
+		return null;
+	}
+
+	@Override
+	public boolean hasKothEvent(UUID koth) {
+		return false;
+	}
+
+	@Override
+	public EventData getKothEvent(UUID koth) {
+		return null;
+	}
+
+	@Override
+	public KothStatus getKothStatus(UUID koth) {
+		return null;
+	}
+
+	@Override
+	public List<Player> getRegionPlayers(UUID kothUUID, CubLoc loc) {
 		return null;
 	}	
 
