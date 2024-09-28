@@ -14,6 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import me.ulrich.koth.data.Addon;
 import me.ulrich.koth.data.CubRegionLoc;
 import me.ulrich.koth.data.EventData;
+import me.ulrich.koth.data.GuiData;
 import me.ulrich.koth.data.IslandJoinLeaveData;
 import me.ulrich.koth.data.KothData;
 import me.ulrich.koth.data.KothEnum.CubLoc;
@@ -172,6 +173,8 @@ public interface KothAPI {
 	KothStatus getKothStatus(UUID koth);
 
 	List<Player> getRegionPlayers(UUID kothUUID, CubLoc loc);
+
+	HashMap<String, GuiData> getInsertGui();
 
 
 
