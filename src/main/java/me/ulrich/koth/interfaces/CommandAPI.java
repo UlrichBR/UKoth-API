@@ -30,5 +30,13 @@ public interface CommandAPI {
 	void sendCommandJson(CommandSender player, CommandData comander, MsgUsage key, List<String> data);
 
 	void sendSubCommandJson(CommandSender player, CommandData comander, String sub, MsgUsage key, List<String> data);
+
+	void unRegisterAdmCommand(String command);
+
+	void registerAdmCommand(String alias, KothCommand command);
+
+	void insertAdmCommand(String command, String permission, String alias, double value, int cooldown,
+			CommandData_show data, CommandData_title title, CommandData_actionbar actionbar, CommandData_sound sound,
+			HashMap<String, CommandData_show> subcommands, CommandData_disable disable);
 	
 }
