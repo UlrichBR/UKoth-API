@@ -1,0 +1,9 @@
+me.ulrich.koth
+me.ulrich.koth.api
+me.ulrich.koth.api.implementations
+me.ulrich.koth.data
+me.ulrich.koth.events
+me.ulrich.koth.interfaces
+me.ulrich.koth.loader
+me.ulrich.koth.loader.addon
+me.ulrich.koth.loader.extension

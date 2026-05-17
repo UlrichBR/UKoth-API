@@ -1,0 +1,17 @@
+name: ${project.name}
+main: ${project.groupId}.${project.artifactId}
+version: ${project.version}
+author: UlrichBR
+website: https://polymart.org/team/ulrichcraft.99
+description: The best and most complete system of Koth.
+api-version: 1.13
+softdepend: [Vault, PlaceholderAPI, WorldGuard, WorldEdit, ProtocolLib, HolographicDisplays, CMI, Holograms, DecentHolograms, UltimateClans, TAB]
+commands:
+   ukoth:
+      description: Open the help staff menu.
+      usage: /<command>
+      aliases: [ukingofthehill, uk]
+   koth:
+      description: Open the help player menu.
+      usage: /<command>
+      aliases: [kingofthehill]
