@@ -44,6 +44,10 @@ jobs:
           java-version: ${{ env.MIN_JAVA_VERSION }}
           distribution: 'temurin'
           cache: 'maven'
+          # --- ADICIONE ESTAS LINHAS ABAIXO ---
+          server-id: central
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
 
       - name: Notificar Início (Discord)
         run: |
@@ -59,8 +63,23 @@ jobs:
                }' \
                ${{ secrets.DISCORD_WEBHOOK }}
 
-      - name: Build com Maven
-        run: mvn -B clean package
+      # --- NOVA ETAPA: CONFIGURAÇÃO DO GPG PARA ASSINAR O ARTEFATO ---
+      - name: Configurar Chave GPG
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+
+      # --- ETAPA ADAPTADA: COMPILA, EXECUTA O FLATTEN, ASSINA E ENVIA PARA O MAVEN CENTRAL ---
+      - name: Build e Deploy no Maven Central
+        env:
+          MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+        run: |
+          mvn clean deploy \
+            -B \
+            --no-transfer-progress \
+            -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }}
 
       - name: Localizar JAR e Processar Metadados
         run: |
@@ -78,7 +97,7 @@ jobs:
                  "username": "TribeCraft Build",
                  "avatar_url": "${{ env.DISCORD_EMBED_THUMBNAIL }}",
                  "embeds": [{
-                   "description": "📦 **API Compilada: ${{ env.MAVEN_NAME }}**\n`${{ env.JAR_NAME }}`\nEnviando para o R2/AWS/GIT...",
+                   "description": "📦 **API Compilada e Enviada ao Maven Central: ${{ env.MAVEN_NAME }}**\n`${{ env.JAR_NAME }}`\nEnviando agora para o R2 e Git...",
                    "color": 3447003
                  }]
                }' \
@@ -148,7 +167,7 @@ jobs:
         if: success()
         run: |
           curl -s -X POST -H "Content-Type: application/json" \
-               -d '{"content": "🔌 API - **${{ env.MAVEN_NAME }}** `${{ env.MAVEN_VERSION }}` enviada ao R2/AWS/GIT!"}' \
+               -d '{"content": "🔌 API - **${{ env.MAVEN_NAME }}** `${{ env.MAVEN_VERSION }}` enviada ao Maven Central/R2/AWS/GIT!"}' \
                ${{ secrets.DISCORD_WEBHOOK }}
 
       - name: Postar Notificação de Release (Elegante)
@@ -171,7 +190,6 @@ jobs:
           repo_url = os.getenv("GITHUB_REPO_URL", "")
           eco_name = os.getenv("ECO_NAME", "")
           
-          # Se a variável ECO_NAME estiver vazia, adota o nome do Maven por segurança
           if not eco_name:
               eco_name = m_name.replace("-API", "").replace("-api", "").strip()
           
@@ -181,14 +199,12 @@ jobs:
               text = text.replace("[I]", "*").replace("[/I]", "*")
               return text.strip()
           
-          # Formata o Título dinamicamente sem estourar escopo de variáveis globais
           final_title = f"🔌 {m_name}"
           
-          # Monta a estrutura da mensagem injetando a versão obtida do Maven e a URL do Github de forma automatizada
           msg_linhas = [
               f"**Eco:** {eco_name}",
               f"**Update:** v{m_ver}",
-              clean_text(os.getenv("RAW_MESSAGE")).split("\n")[-1], # Captura o status do bloco original
+              clean_text(os.getenv("RAW_MESSAGE")).split("\n")[-1],
               f"**Url:** {repo_url}"
           ]
           final_description = "\n".join(msg_linhas)
@@ -199,7 +215,7 @@ jobs:
               "embeds": [{
                   "title": final_title,
                   "description": final_description,
-                  "color": 10181046, # Roxo/Purple para APIs/Extensões
+                  "color": 10181046,
                   "thumbnail": {"url": os.getenv("THUMB")},
                   "footer": {"text": f"API: {m_name} | TribeCraft Studios", "icon_url": os.getenv("TRIBE")}
               }]
@@ -217,7 +233,7 @@ jobs:
                  "username": "TribeCraft Build",
                  "embeds": [{
                    "title": "❌ Erro na API",
-                   "description": "Falha ao compilar `${{ env.MAVEN_NAME }}`.\n[Ver Erro](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})",
+                   "description": "Falha ao compilar ou publicar `${{ env.MAVEN_NAME }}`.\n[Ver Erro](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})",
                    "color": 15158332
                  }]
                }' \
