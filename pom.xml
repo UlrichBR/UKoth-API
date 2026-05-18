@@ -6,7 +6,7 @@
          https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.ulrichbr</groupId>
-	<artifactId>Koth</artifactId>
+	<artifactId>UltimateKoth</artifactId>
 	<version>2.24.0-R2-RELEASE</version>
 	<name>UltimateKoth</name>
 	<description>UKoth API V2.</description>
@@ -104,7 +104,7 @@
 						<configuration>
 							<transformers>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>me.ulrich.clans.Clans</mainClass>
+									<mainClass>me.ulrich.koth.Koth</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
