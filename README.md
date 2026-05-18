@@ -1,9 +1,9 @@
-# UClans-API
+# UKoth-API
 
 The official integration API for the UltimateKoth ecosystem. Built to provide content creators and developers with complete control over clan management, internal hooks, and custom events.
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.ulrichbr/UltimateKoth?color=blue&label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.ulrichbr/UltimateClans)
-[![](https://jitpack.io/v/UlrichBR/UClans-API.svg)](https://jitpack.io/#UlrichBR/UKoth-API)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.ulrichbr/UltimateKoth?color=blue&label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.ulrichbr/UltimateKoth)
+[![](https://jitpack.io/v/UlrichBR/UKoth-API.svg)](https://jitpack.io/#UlrichBR/UKoth-API)
 [![Java Version](https://img.shields.io/badge/Java-17%20%2F%2021-orange?logo=openjdk)](https://pom.xml)
 
 ---
