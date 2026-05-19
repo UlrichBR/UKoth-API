@@ -16,6 +16,12 @@ Choose one of the repositories below to add the UltimateKoth API as a dependency
 The official, fastest, and most stable method. It does not require adding any extra repository to your `pom.xml`, as the Maven ecosystem fetches the artifacts natively.
 
 ```xml
+	dependencies {
+	        implementation("io.github.ulrichbr:UltimateKoth:VERSION")
+	}
+```
+
+```xml
 <dependencies>
     <dependency>
         <groupId>io.github.ulrichbr</groupId>
@@ -28,6 +34,21 @@ The official, fastest, and most stable method. It does not require adding any ex
 
 ### Option 2: JitPack (Alternative)
 Use this option if you need to compile specific commits from branches or legacy versions hosted directly on the GitHub repository.
+
+```xml
+
+	dependencyResolutionManagement {
+		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+		repositories {
+			mavenCentral()
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+	dependencies {
+	        implementation 'com.github.UlrichBR:UKoth-API:VERSION'
+	}
+```
 
 ```xml
 <repositories>
